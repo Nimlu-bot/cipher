@@ -1,3 +1,5 @@
+import { parseConfig } from './configParser.js';
+
 export const parse = (args) => {
   const options = new Map();
   let current = null;
@@ -17,5 +19,9 @@ export const parse = (args) => {
     } else throw Error(`invalid argument ${arg}`);
   });
   if (!options.has('c')) throw Error('option -c or --config is required');
+  else {
+    const configOptions = parseConfig(options.get('c'));
+    console.log(configOptions);
+  }
   console.log(Object.fromEntries(options.entries()));
 };
