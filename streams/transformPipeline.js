@@ -1,9 +1,9 @@
 import { pipeline } from 'stream';
 
 import { readStream } from './readStream.js';
-import { transformSteam } from './transformStream.js';
 import { writeStream } from './writeStream.js';
 import { errorHandler } from '../utils/errorHandler.js';
+import { createTransform } from './createTransform.js';
 
 export const transformPipeline = ({
   input = undefined,
@@ -12,7 +12,7 @@ export const transformPipeline = ({
 }) => {
   pipeline(
     readStream(input),
-    transformSteam(config),
+    ...createTransform(config),
     writeStream(output),
     (error) => errorHandler(error)
   );
