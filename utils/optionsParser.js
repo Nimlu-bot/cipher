@@ -1,5 +1,5 @@
-import fs from 'fs';
 import { parseConfig } from './configParser.js';
+import { checkFile } from './checkFiles.js';
 
 export const parse = async (args) => {
   const options = new Map();
@@ -24,20 +24,9 @@ export const parse = async (args) => {
   else {
     configOptions = parseConfig(options.get('config'));
   }
-  if (options.has('input')) {
-    try {
-      await fs.promises.access(options.get('input'), fs.constants.F_OK);
-    } catch (error) {
-      throw Error(`input file not found or inaccessible`);
-    }
-  }
+  if (options.has('input')) await checkFile(options.get('input'));
 
-  if (options.has('output')) {
-    try {
-      await fs.promises.access(options.get('output'), fs.constants.F_OK);
-    } catch (error) {
-      throw Error(`output file not found or inaccessible`);
-    }
-  }
+  if (options.has('output')) await checkFile(options.get('output'));
+
   return { ...Object.fromEntries(options.entries()), config: configOptions };
 };

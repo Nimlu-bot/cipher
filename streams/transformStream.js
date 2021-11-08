@@ -1,7 +1,8 @@
 import { Transform } from 'stream';
 import { atbash } from '../ciphers/atbash.js';
-import { caesar } from '../ciphers/caesar.js';
-import { root8 } from '../ciphers/root-8.js';
+// import { caesar } from '../ciphers/caesar.js';
+import { caesarRoot } from '../ciphers/caesarRoot.js';
+// import { root8 } from '../ciphers/root-8.js';
 
 const typeCaesar = ['C', 'c'];
 const typeAtbash = ['A', 'a'];
@@ -20,7 +21,7 @@ export const transformSteam = (action) => {
   if (typeCaesar.includes(type)) {
     return new Transform({
       transform(chunk, _, callback) {
-        this.push(caesar(chunk, direction));
+        this.push(caesarRoot(chunk, direction, 1));
         callback();
       },
     });
@@ -28,7 +29,7 @@ export const transformSteam = (action) => {
   if (typeRoot8.includes(type)) {
     return new Transform({
       transform(chunk, _, callback) {
-        this.push(root8(chunk, direction));
+        this.push(caesarRoot(chunk, direction, 8));
         callback();
       },
     });
