@@ -6,6 +6,8 @@ import { MyError } from '../utils/customError.js';
 const typeCaesar = 'C';
 const typeAtbash = 'A';
 const typeRoot8 = 'R';
+const caesarShift = 1;
+const rootShift = 8;
 
 export const transformSteam = (action) => {
   const [type, direction] = action.split('');
@@ -20,7 +22,7 @@ export const transformSteam = (action) => {
   if (type === typeCaesar) {
     return new Transform({
       transform(chunk, _, callback) {
-        this.push(caesarRoot(chunk, direction, 1));
+        this.push(caesarRoot(chunk, direction, caesarShift));
         callback();
       },
     });
@@ -28,7 +30,7 @@ export const transformSteam = (action) => {
   if (type === typeRoot8) {
     return new Transform({
       transform(chunk, _, callback) {
-        this.push(caesarRoot(chunk, direction, 8));
+        this.push(caesarRoot(chunk, direction, rootShift));
         callback();
       },
     });
