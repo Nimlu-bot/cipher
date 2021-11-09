@@ -3,6 +3,7 @@ import { atbash } from '../ciphers/atbash.js';
 // import { caesar } from '../ciphers/caesar.js';
 import { caesarRoot } from '../ciphers/caesarRoot.js';
 // import { root8 } from '../ciphers/root-8.js';
+import { MyError } from '../utils/customError.js';
 
 const typeCaesar = ['C', 'c'];
 const typeAtbash = ['A', 'a'];
@@ -34,5 +35,5 @@ export const transformSteam = (action) => {
       },
     });
   }
-  throw Error('Unexpected action');
+  throw MyError('Unexpected action');
 };
