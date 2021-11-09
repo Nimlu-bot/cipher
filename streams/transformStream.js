@@ -3,13 +3,13 @@ import { atbash } from '../ciphers/atbash.js';
 import { caesarRoot } from '../ciphers/caesarRoot.js';
 import { MyError } from '../utils/customError.js';
 
-const typeCaesar = ['C', 'c'];
-const typeAtbash = ['A', 'a'];
-const typeRoot8 = ['R', 'r'];
+const typeCaesar = 'C';
+const typeAtbash = 'A';
+const typeRoot8 = 'R';
 
 export const transformSteam = (action) => {
   const [type, direction] = action.split('');
-  if (typeAtbash.includes(type)) {
+  if (type === typeAtbash) {
     return new Transform({
       transform(chunk, _, callback) {
         this.push(atbash(chunk));
@@ -17,7 +17,7 @@ export const transformSteam = (action) => {
       },
     });
   }
-  if (typeCaesar.includes(type)) {
+  if (type === typeCaesar) {
     return new Transform({
       transform(chunk, _, callback) {
         this.push(caesarRoot(chunk, direction, 1));
@@ -25,7 +25,7 @@ export const transformSteam = (action) => {
       },
     });
   }
-  if (typeRoot8.includes(type)) {
+  if (type === typeRoot8) {
     return new Transform({
       transform(chunk, _, callback) {
         this.push(caesarRoot(chunk, direction, 8));

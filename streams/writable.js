@@ -1,6 +1,3 @@
-/* eslint-disable no-underscore-dangle */
-// const Writable = require('stream').Writable;
-
 import { Writable } from 'stream';
 import path from 'path';
 import fs from 'fs';
@@ -8,12 +5,11 @@ import fs from 'fs';
 export class WriteStream extends Writable {
   constructor(filename) {
     super();
-    const __dirname = path.resolve();
-    this.filename = path.join(__dirname, filename);
+    this.filename = path.resolve(filename);
   }
 
   _construct(callback) {
-    fs.open(this.filename, 'w+', (err, fd) => {
+    fs.open(this.filename, 'a', (err, fd) => {
       if (err) {
         callback(err);
       } else {

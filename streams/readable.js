@@ -1,4 +1,3 @@
-/* eslint-disable no-underscore-dangle */
 import { Readable } from 'stream';
 import path from 'path';
 
@@ -7,9 +6,7 @@ import fs from 'fs';
 export class ReadStream extends Readable {
   constructor(filename) {
     super();
-    const __dirname = path.resolve();
-    this.filename = path.join(__dirname, filename);
-    console.log(this.filename);
+    this.filename = path.resolve(filename);
     this.fd = null;
   }
 
