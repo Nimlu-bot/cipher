@@ -1,24 +1,21 @@
-// const { Readable } = require('stream');
-
+/* eslint-disable no-underscore-dangle */
 import { Readable } from 'stream';
-import path, { dirname } from 'path';
+import path from 'path';
 
 import fs from 'fs';
-
-// const fs = require('fs');
 
 export class ReadStream extends Readable {
   constructor(filename) {
     super();
-    this.filename = filename;
-    // console.log(this.filename);
+    const __dirname = path.resolve();
+    this.filename = path.join(__dirname, filename);
+    console.log(this.filename);
     this.fd = null;
   }
 
   _construct(callback) {
-    fs.open(this.filename, (err, fd) => {
+    fs.open(this.filename, 'r', (err, fd) => {
       if (err) {
-        console.log('eeeeeeeeeeeeeeeeeeeeeeeeeeee');
         callback(err);
       } else {
         this.fd = fd;
@@ -29,7 +26,7 @@ export class ReadStream extends Readable {
 
   _read(n) {
     const buf = Buffer.alloc(n);
-    fs.read(this.fd,  (err, bytesRead) => {
+    fs.read(this.fd, buf, 0, n, null, (err, bytesRead) => {
       if (err) {
         this.destroy(err);
       } else {
