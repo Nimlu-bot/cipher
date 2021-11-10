@@ -1,6 +1,5 @@
 import { Readable } from 'stream';
 import path from 'path';
-
 import fs from 'fs';
 
 export class ReadStream extends Readable {

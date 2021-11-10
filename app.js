@@ -4,10 +4,6 @@ import { transformPipeline } from './streams/transformPipeline.js';
 
 const args = process.argv.slice(2);
 
-try {
-  parse(args)
-    .then((config) => transformPipeline(config))
-    .catch((error) => errorHandler(error));
-} catch (error) {
-  errorHandler(error);
-}
+parse(args)
+  .then((config) => transformPipeline(config))
+  .catch((error) => errorHandler(error));

@@ -1,7 +1,8 @@
 import { matchDecode, matchEncode } from '../utils/matchRange.js';
 
-const caesarRoot = (chunk, action, shift) => {
-  const isEncoded = action === '1';
+const ENCODE = '1';
+const caesarRot = (chunk, action, shift) => {
+  const isEncoded = action === ENCODE;
 
   if (isEncoded) {
     return chunk.map((el) => {
@@ -17,4 +18,4 @@ const caesarRoot = (chunk, action, shift) => {
   });
 };
 
-export { caesarRoot };
+export { caesarRot };

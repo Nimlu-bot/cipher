@@ -6,7 +6,7 @@ export const parseConfig = (config) => {
   const configArray = config.split('-');
 
   configArray.forEach((item) => {
-    if (!matches.includes(item)) throw MyError('config not corect');
+    if (!matches.includes(item)) throw new MyError('incorrect config');
   });
 
   return configArray;

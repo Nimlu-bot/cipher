@@ -1,6 +1,7 @@
 import { Writable } from 'stream';
 import path from 'path';
 import fs from 'fs';
+import { MyError } from '../utils/customError.js';
 
 export class WriteStream extends Writable {
   constructor(filename) {
@@ -11,7 +12,7 @@ export class WriteStream extends Writable {
   _construct(callback) {
     fs.open(this.filename, 'a', (err, fd) => {
       if (err) {
-        callback(err);
+        callback(new MyError(`${this.filename} is readonly`));
       } else {
         this.fd = fd;
         callback();

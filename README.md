@@ -9,9 +9,9 @@ tool accepts 3 options: config, input file and output file. Config is required a
 3. In folder where located package.json run ``` npm i```.
 4. run 
 ```bash
-node .\app.js -c "comfig" -i "path to input file" -o "pass to ouput file"
+node .\app.js -c "config" -i "path to input file" -o "pass to ouput file"
 ```
-where "comfig" - config kind "C1-C1-R0-A", path to input file and pass to ouput file are pathes to files in file system.
+where "config" - config kind "C1-C1-R0-A", path to input file and pass to ouput file are pathes to files in file system.
 
 
 
