@@ -2,6 +2,7 @@ import { parseConfig } from './configParser.js';
 import { checkFile } from './checkFiles.js';
 import { MyError } from './customError.js';
 import { checkArgs } from './checkArguments.js';
+import { checkSame } from './checkSameFiles.js';
 
 const INPUT = 'input';
 const OUTPUT = 'output';
@@ -34,6 +35,8 @@ export const parse = async (args) => {
   if (options.has(INPUT)) await checkFile(options.get(INPUT));
 
   if (options.has(OUTPUT)) await checkFile(options.get(OUTPUT));
+	
+  checkSame(options.get(INPUT), options.get(OUTPUT));
 
   return { ...Object.fromEntries(options.entries()), config: configOptions };
 };
