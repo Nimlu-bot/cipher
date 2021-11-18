@@ -1,17 +1,35 @@
-// import fs from 'fs';
-// import path from 'path';
-// import { checkFile } from './checkFiles.js';
+import { jest } from '@jest/globals';
+import { checkFile } from './checkFiles.js';
 
-// jest.mock('fs', () => jest.fn());
-// jest.mock('path', () => jest.fn());
+//const fs = jest.fn();
 
-// describe('checkFile', () => {
-//   it('should return  Error if file does not exist', () => {
-//     const options = './input';
+describe('checkFile', () => {
+  it('should return  undefined if file  exist', async () => {
+    const options = './input.txt';
 
-//     fs.mockImplementation(() => true);
-// 		console.log()
-//     const actual = checkFile(options);
-//     expect(actual).toEqual({ config: ['A', 'R1', 'C0'] });
-//   });
-// });
+    // fs.mockReturnValue(true);
+
+    const actual = await checkFile(options);
+    expect(actual).toBeUndefined();
+  });
+  it('should return  Error if file does not exist', async () => {
+    const options = './input.tx';
+
+    // fs.mockReturnValue(true);
+    try {
+      await checkFile(options);
+    } catch (error) {
+      expect(error.message).toBe('./input.tx - not found or inaccessible');
+    }
+  });
+  it('should return  Error if path is  a directory', async () => {
+    const options = './utils';
+
+   //  fs.mockReturnValue(true);
+    try {
+      await checkFile(options);
+    } catch (error) {
+      expect(error.message).toBe('./utils is directory');
+    }
+  });
+});

@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80.76% </span>
+                <span class="strong">96% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>21/26</span>
+                <span class='fraction'>24/25</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">58.33% </span>
+                <span class="strong">83.33% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>7/12</span>
+                <span class='fraction'>10/12</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">87.5% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>21/24</span>
+                <span class='fraction'>23/23</span>
             </div>
         
             
@@ -110,36 +110,36 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { parseConfig } from './configParser.js';
 import { checkFile } from './checkFiles.js';
@@ -160,25 +160,25 @@ export const parse = async (args) =&gt; {
     if (/^--?[a-z]+/.test(arg)) {
       const filteredArg = checkArgs(arg);
 &nbsp;
-      <span class="missing-if-branch" title="if path not taken" >I</span>if (options.has(filteredArg))
-<span class="cstat-no" title="statement not covered" >        throw new MyError(`to many -${filteredArg}`);</span>
+      if (options.has(filteredArg))
+        throw new MyError(`to many -${filteredArg}`);
       else current = filteredArg;
     } else if (current) {
       options.set(current, arg);
       current = null;
-    } else <span class="cstat-no" title="statement not covered" ><span class="missing-if-branch" title="else path not taken" >E</span>throw new MyError(`invalid argument ${arg}`);</span>
+    }
   });
 &nbsp;
-  <span class="missing-if-branch" title="if path not taken" >I</span>if (!options.has(CONFIG))
-<span class="cstat-no" title="statement not covered" >    throw new MyError('option -c or --config is required');</span>
+  if (!options.has(CONFIG))
+    throw new MyError('option -c or --config is required');
   else {
     configOptions = parseConfig(options.get(CONFIG));
   }
 &nbsp;
-  <span class="missing-if-branch" title="if path not taken" >I</span>if (options.has(INPUT)) <span class="cstat-no" title="statement not covered" >await checkFile(options.get(INPUT));</span>
+  if (options.has(INPUT)) await checkFile(options.get(INPUT));
 &nbsp;
   <span class="missing-if-branch" title="if path not taken" >I</span>if (options.has(OUTPUT)) <span class="cstat-no" title="statement not covered" >await checkFile(options.get(OUTPUT));</span>
-	
+&nbsp;
   checkSame(options.get(INPUT), options.get(OUTPUT));
 &nbsp;
   return { ...Object.fromEntries(options.entries()), config: configOptions };
@@ -190,7 +190,7 @@ export const parse = async (args) =&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Nov 17 2021 17:02:19 GMT+0300 (Москва, стандартное время)
+                at Thu Nov 18 2021 22:32:30 GMT+0300 (Москва, стандартное время)
             </div>
         </div>
         <script src="../prettify.js"></script>
