@@ -1,6 +1,7 @@
 import { parse } from './optionsParser.js';
 
 // jest.mock("./isInteger", () => jest.fn());
+// jest.mock
 
 describe('parse', () => {
   it('should return  valid options', () => {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1637065168492" clover="3.2.0">
-  <project timestamp="1637065168492" name="All files">
-    <metrics statements="48" coveredstatements="48" conditionals="56" coveredconditionals="56" methods="13" coveredmethods="13" elements="117" coveredelements="117" complexity="0" loc="48" ncloc="48" packages="2" files="7" classes="7"/>
+<coverage generated="1637157739966" clover="3.2.0">
+  <project timestamp="1637157739966" name="All files">
+    <metrics statements="81" coveredstatements="71" conditionals="74" coveredconditionals="65" methods="16" coveredmethods="15" elements="171" coveredelements="151" complexity="0" loc="81" ncloc="81" packages="2" files="9" classes="9"/>
     <package name="ciphers">
       <metrics statements="11" coveredstatements="11" conditionals="8" coveredconditionals="8" methods="5" coveredmethods="5"/>
       <file name="atbash.js" path="D:\DEV\2021\node\cipher\ciphers\atbash.js">
@@ -23,29 +23,41 @@
       </file>
     </package>
     <package name="utils">
-      <metrics statements="37" coveredstatements="37" conditionals="48" coveredconditionals="48" methods="8" coveredmethods="8"/>
+      <metrics statements="70" coveredstatements="60" conditionals="66" coveredconditionals="57" methods="11" coveredmethods="10"/>
       <file name="checkArguments.js" path="D:\DEV\2021\node\cipher\utils\checkArguments.js">
         <metrics statements="5" coveredstatements="5" conditionals="12" coveredconditionals="12" methods="1" coveredmethods="1"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="4" type="cond" truecount="4" falsecount="0"/>
-        <line num="5" count="3" type="cond" truecount="4" falsecount="0"/>
-        <line num="6" count="2" type="cond" truecount="4" falsecount="0"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="5" type="cond" truecount="4" falsecount="0"/>
+        <line num="5" count="4" type="cond" truecount="4" falsecount="0"/>
+        <line num="6" count="3" type="cond" truecount="4" falsecount="0"/>
         <line num="7" count="1" type="stmt"/>
       </file>
-      <file name="checkSameFiles.js" path="D:\DEV\2021\node\cipher\utils\checkSameFiles.js">
-        <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="2" type="cond" truecount="2" falsecount="0"/>
+      <file name="checkFiles.js" path="D:\DEV\2021\node\cipher\utils\checkFiles.js">
+        <metrics statements="8" coveredstatements="1" conditionals="4" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="5" count="1" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="12" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="13" count="0" type="stmt"/>
+      </file>
+      <file name="checkSameFiles.js" path="D:\DEV\2021\node\cipher\utils\checkSameFiles.js">
+        <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="3" type="cond" truecount="4" falsecount="0"/>
+        <line num="6" count="1" type="stmt"/>
       </file>
       <file name="configParser.js" path="D:\DEV\2021\node\cipher\utils\configParser.js">
         <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="4" count="4" type="stmt"/>
-        <line num="6" count="4" type="stmt"/>
-        <line num="8" count="4" type="stmt"/>
-        <line num="9" count="12" type="cond" truecount="2" falsecount="0"/>
-        <line num="12" count="2" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
+        <line num="6" count="5" type="stmt"/>
+        <line num="8" count="5" type="stmt"/>
+        <line num="9" count="15" type="cond" truecount="2" falsecount="0"/>
+        <line num="12" count="3" type="stmt"/>
       </file>
       <file name="customError.js" path="D:\DEV\2021\node\cipher\utils\customError.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -75,6 +87,33 @@
         <line num="35" count="4" type="cond" truecount="4" falsecount="0"/>
         <line num="36" count="2" type="stmt"/>
         <line num="38" count="2" type="stmt"/>
+      </file>
+      <file name="optionsParser.js" path="D:\DEV\2021\node\cipher\utils\optionsParser.js">
+        <metrics statements="24" coveredstatements="21" conditionals="12" coveredconditionals="7" methods="2" coveredmethods="2"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="20" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="23" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="29" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="35" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="37" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
       </file>
     </package>
   </project>
