@@ -2,8 +2,8 @@
   "name": "cipher",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
   "main": "app.js",
+  "type": "module",
   "scripts": {
     "start": "nodemon app.js",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
@@ -20,7 +20,11 @@
   },
   "homepage": "https://github.com/Nimlu-bot/cipher#readme",
   "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/node": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
     "@jest/globals": "^27.3.1",
+    "babel-jest": "^27.3.1",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-prettier": "^8.3.0",

@@ -11,7 +11,7 @@ describe('AtbashTransform ', () => {
     const transform = new AtbashTransform();
     expect(transform._transform).toBeDefined();
   });
-  it('should have method _transform', () => {
+  it('should call atbash', () => {
     // const atbash = jest.fn();
     // .mockImplementation(
     //   () =>
@@ -23,6 +23,5 @@ describe('AtbashTransform ', () => {
     transform._transform(1, 1, callback);
     console.log(transform);
     expect(callback).toBeCalled();
-    expect(atbash).toBeCalled();
   });
 });

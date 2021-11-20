@@ -1,5 +1,5 @@
 import { expect } from '@jest/globals';
-import { execSync } from 'child_process';
+import { execSync, exec } from 'child_process';
 import fs from 'fs';
 
 describe('app', () => {
@@ -11,6 +11,23 @@ describe('app', () => {
     } catch (error) {
       console.log(error);
     }
+  });
+
+  it('should pass if config correct', (done) => {
+    const cliData = 'node ./app.js -c C1-C1-R0-A ';
+    const actual = exec(cliData);
+    actual.stdin.setEncoding('utf-8');
+    actual.stdin.write('aaaaaaaaaaaaaaaaaa\n');
+    actual.stdin.end();
+    actual.stdout.on('data', (data) => {
+      try {
+        console.log(data);
+        expect(data.trim()).toEqual('ffffffffffffffffff');
+        done();
+      } catch (error) {
+        done(error);
+      }
+    });
   });
   it('should pass first scenario described in task 1', () => {
     const cliData =
