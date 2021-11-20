@@ -1,4 +1,3 @@
-import { equal } from 'assert';
 import { exec } from 'child_process';
 
 describe('app', () => {
@@ -7,7 +6,6 @@ describe('app', () => {
     const actual = exec(cliData);
 
     actual.stderr.on('data', (data) => {
-      // console.log(` ${data}`);
       try {
         expect(data.trim()).toEqual('ERROR: to many -input');
         done();
@@ -21,7 +19,6 @@ describe('app', () => {
     const actual = exec(cliData);
 
     actual.stderr.on('data', (data) => {
-      // console.log(` ${data}`);
       try {
         expect(data.trim()).toEqual('ERROR: option -c or --config is required');
         done();
@@ -35,7 +32,6 @@ describe('app', () => {
     const actual = exec(cliData);
 
     actual.stderr.on('data', (data) => {
-      // console.log(` ${data}`);
       try {
         expect(data.trim()).toEqual(
           'ERROR: ./iiiiiiii - not found or inaccessible'
@@ -51,7 +47,6 @@ describe('app', () => {
     const actual = exec(cliData);
 
     actual.stderr.on('data', (data) => {
-      // console.log(` ${data}`);
       try {
         expect(data.trim()).toEqual(
           'ERROR: ./ooooooo - not found or inaccessible'
@@ -68,7 +63,6 @@ describe('app', () => {
     const actual = exec(cliData);
 
     actual.stderr.on('data', (data) => {
-      // console.log(` ${data}`);
       try {
         expect(data.trim()).toEqual('ERROR: incorrect config');
         done();

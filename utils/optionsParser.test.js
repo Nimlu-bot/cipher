@@ -1,11 +1,5 @@
 import { expect, jest } from '@jest/globals';
 import { parse } from './optionsParser.js';
-import { MyError } from './customError.js';
-
-// jest.mock("./checkFiles.js", () => jest.fn());
-// jest.mock
-
-// const checkFile = jest.fn();
 
 const checkFile = jest.fn();
 checkFile.mockImplementation(async () => undefined);
@@ -42,12 +36,28 @@ describe('parse', () => {
       expect(error.message).toBe('option -c or --config is required');
     }
   });
-  it('should  call checkFile function if input file passed ', async () => {
+  it('should  call checkFile function if input file is passed ', async () => {
     const options = ['-c', 'A-R1-C0', '-i', './input.txt'];
     try {
       await parse(options);
     } catch (error) {
       expect(checkFile).toBeCalled();
+      expect(error.message).toBe('option -c or --config is required');
+    }
+  });
+  it('should  call checkFile function if output and input files are passed ', async () => {
+    const options = [
+      '-c',
+      'A-R1-C0',
+      '-i',
+      './input.txt',
+      '-o',
+      './output.txt',
+    ];
+    try {
+      await parse(options);
+    } catch (error) {
+      expect(checkFile).toBeCalledTimes(2);
       expect(error.message).toBe('option -c or --config is required');
     }
   });
