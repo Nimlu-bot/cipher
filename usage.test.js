@@ -1,9 +1,21 @@
-import { expect } from '@jest/globals';
+import { beforeAll, expect } from '@jest/globals';
 import { execSync, exec } from 'child_process';
 import fs from 'fs';
 
 describe('app', () => {
   let output;
+
+  beforeAll(() => {
+    try {
+      output = fs.writeFileSync(
+        './input.txt',
+        'This is secret. Message about "_" symbol!',
+        { encoding: 'utf-8' }
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  });
 
   beforeEach(() => {
     try {
@@ -21,7 +33,6 @@ describe('app', () => {
     actual.stdin.end();
     actual.stdout.on('data', (data) => {
       try {
-        console.log(data);
         expect(data.trim()).toEqual('ffffffffffffffffff');
         done();
       } catch (error) {
