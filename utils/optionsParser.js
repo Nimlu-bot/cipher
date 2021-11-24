@@ -23,7 +23,7 @@ export const parse = async (args) => {
     } else if (current) {
       options.set(current, arg);
       current = null;
-    } else throw new MyError(`invalid argument ${arg}`);
+    }
   });
 
   if (!options.has(CONFIG))
@@ -35,7 +35,7 @@ export const parse = async (args) => {
   if (options.has(INPUT)) await checkFile(options.get(INPUT));
 
   if (options.has(OUTPUT)) await checkFile(options.get(OUTPUT));
-	
+
   checkSame(options.get(INPUT), options.get(OUTPUT));
 
   return { ...Object.fromEntries(options.entries()), config: configOptions };

@@ -56,3 +56,19 @@ $ node .\app.js -c "C1-R1-C0-C0-A-R0-R1-R1-A-C1" -i "./input.txt" -o "./output.t
 
 > output.txt
 > `This is secret. Message about "_" symbol!`
+
+
+
+
+
+for run tests
+
+```bash
+npm run test:coverage
+```
+
+error scenatios are in app.test.js
+
+sucsess scenarios are in usage.tes.js
+
+mock used in errorHandler.test.js as example
